@@ -8,11 +8,15 @@ class UserRepository extends BaseRepository {
   }
 
   async createUser(user) {
-    return User.create(user);
+    const userCreated = await User.create(user);
+    super.closeConnection();
+    return userCreated;
   }
 
   async findUser(username) {
-    return User.findOne({ where: { username } });
+    const userFound = User.findOne({ where: { username } });
+    super.closeConnection();
+    return userFound;
   }
 }
 

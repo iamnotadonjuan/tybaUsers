@@ -6,8 +6,4 @@ class UserRepository extends BaseRepository {
     super();
     super.createConnection();
   }
-
-  async createUser(user) {
-    return User.create(user);
-  }
 }
