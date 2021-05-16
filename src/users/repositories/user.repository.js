@@ -14,7 +14,7 @@ class UserRepository extends BaseRepository {
   }
 
   async findUser(username) {
-    const userFound = User.findOne({ where: { username } });
+    const userFound = await User.findOne({ where: { username } });
     super.closeConnection();
     return userFound;
   }
